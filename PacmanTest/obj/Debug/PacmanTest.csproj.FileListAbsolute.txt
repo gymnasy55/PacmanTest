@@ -1,0 +1,10 @@
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\bin\Debug\PacmanTest.exe.config
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\bin\Debug\PacmanTest.exe
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\bin\Debug\PacmanTest.pdb
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.csprojAssemblyReference.cache
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.GameForm.resources
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.Properties.Resources.resources
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.csproj.GenerateResource.cache
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.csproj.CoreCompileInputs.cache
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.exe
+C:\Users\polcr\source\repos\PacmanTest\PacmanTest\obj\Debug\PacmanTest.pdb
