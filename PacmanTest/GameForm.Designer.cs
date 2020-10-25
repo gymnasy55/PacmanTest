@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tmr = new System.Windows.Forms.Timer(this.components);
+            this.pcb = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb)).BeginInit();
             this.SuspendLayout();
             // 
-            // timer1
+            // tmr
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 17;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.tmr.Enabled = true;
+            this.tmr.Interval = 17;
+            this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
             // 
-            // pictureBox1
+            // pcb
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 450);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pcb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcb.Location = new System.Drawing.Point(0, 0);
+            this.pcb.Name = "pcb";
+            this.pcb.Size = new System.Drawing.Size(800, 450);
+            this.pcb.TabIndex = 0;
+            this.pcb.TabStop = false;
+            this.pcb.Paint += new System.Windows.Forms.PaintEventHandler(this.pcb_Paint);
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pcb);
             this.Name = "GameForm";
-            this.Text = "Form1";
+            this.Text = "Pacman";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer tmr;
+        private System.Windows.Forms.PictureBox pcb;
     }
 }
 
