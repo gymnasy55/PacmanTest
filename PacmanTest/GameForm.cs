@@ -18,16 +18,18 @@ namespace PacmanTest
         private readonly int _delta;
         private Keys _key;
         private int _start_angle;
+        private bool isEating;
 
         public GameForm()
         {
             InitializeComponent();
-            _pacman = new Pacman(2, 3);
+            _pacman = new Pacman(275, 365);
             this.BackColor = Color.Black;
-            this.ClientSize = new System.Drawing.Size(502, 502);
+            this.ClientSize = new System.Drawing.Size(570, 660);
             _key = Keys.Right;
-            _delta = 2;
+            _delta = 5;
             _start_angle = 45;
+            isEating = false;
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
@@ -55,34 +57,60 @@ namespace PacmanTest
 
         private void tmr_Tick(object sender, EventArgs e)
         {
+            bool cango = _pacman.CanGo(_key);
             switch (_key)
             {
-                case Keys.Right:
-                    //if(((Bitmap)pcb.Image).GetPixel(_pacman.X+_delta, _pacman.Y) != Color.Blue)
-                    if (_pacman.X + _pacman.Diameter < this.ClientSize.Width - 2)
+                case Keys.Right when cango:
+                    if (_pacman.X + 5 + _pacman.Diameter < this.ClientSize.Width - 30)
                         _pacman.X += _delta;
                     break;
-                case Keys.Up:
-                    if(_pacman.Y > 3)
+                case Keys.Up when cango:
+                    if (_pacman.Y > 35)
                         _pacman.Y -= _delta;
                     break;
-                case Keys.Left:
-                    if(_pacman.X > 2)
+                case Keys.Left when cango:
+                    if (_pacman.X > 35)
                         _pacman.X -= _delta;
                     break;
-                case Keys.Down:
-                    if(_pacman.Y +  _pacman.Diameter < this.ClientSize.Height - 3)
+                case Keys.Down when cango:
+                    if (_pacman.Y + 5 + _pacman.Diameter < this.ClientSize.Height - 30)
                         _pacman.Y += _delta;
                     break;
             }
+            isEating = !isEating;
             pcb.Invalidate();
         }
 
         private void pcb_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
-            e.Graphics.DrawRectangle(Pens.Blue, new Rectangle(0, 1, this.ClientSize.Width - 1, this.ClientSize.Height - 2));
-            e.Graphics.FillPie(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter), _start_angle, 270);
+            for (int i = 0; i < 19; i++)
+            {
+                for (int j = 0; j < 22; j++)
+                {
+                    Rectangle rect = new Rectangle(i * 30, j * 30, 30, 30);
+                    if (Pacman.Map[j, i] == 8)
+                    {
+                        e.Graphics.DrawRectangle(Pens.DarkSlateGray, new Rectangle(i * 30, j * 30, 30, 30));
+                        rect.Inflate(-1, -1);
+                        e.Graphics.FillRectangle(Brushes.Blue, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 1)
+                    {
+                        rect.Inflate(-13, -13);
+                        e.Graphics.FillEllipse(Brushes.White, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 4)
+                    {
+                        rect.Inflate(-10, -10);
+                        e.Graphics.FillEllipse(Brushes.White, rect);
+                    }
+                }
+            }
+            if (isEating)
+                e.Graphics.FillPie(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter), _start_angle, 270);
+            else
+                e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter));
         }
     }
 }
