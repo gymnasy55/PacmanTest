@@ -16,6 +16,7 @@ namespace PacmanTest
     public partial class GameForm : Form
     {
         private readonly Pacman _pacman;
+        private readonly List<Ghost> _ghosts;
         private readonly int _delta;
         private Keys _key;
         private int _startAngle;
@@ -31,6 +32,11 @@ namespace PacmanTest
             _delta = 10;
             _startAngle = 45;
             _isEating = false;
+            _ghosts = new List<Ghost>();
+            _ghosts.Add(new Ghost(10 * 30, 10 * 30, GhostDirection.Down, GhostValue.Red));
+            _ghosts.Add(new Ghost(10 * 30, 11 * 30, GhostDirection.Up, GhostValue.Orange));
+            _ghosts.Add(new Ghost(9 * 30, 11 * 30, GhostDirection.Right, GhostValue.Blue));
+            _ghosts.Add(new Ghost(11 * 30, 11 * 30, GhostDirection.Left, GhostValue.Pink));
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
@@ -106,24 +112,39 @@ namespace PacmanTest
                         rect.Inflate(-10, -10);
                         e.Graphics.FillEllipse(Brushes.White, rect);
                     }
-                    else if (Pacman.Map[j, i] == 3)
+                    else if (Pacman.Map[j, i] == 3 && _ghosts[0].Direction == GhostDirection.Left)
                     {
-                        Image image = Resources.pixel_ghost_red_128x128;
+                        Image image = Resources.pixel_ghost_red_left_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 3 && _ghosts[0].Direction == GhostDirection.Right)
+                    {
+                        Image image = Resources.pixel_ghost_red_right_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 3 && _ghosts[0].Direction == GhostDirection.Up)
+                    {
+                        Image image = Resources.pixel_ghost_red_up_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 3 && _ghosts[0].Direction == GhostDirection.Down)
+                    {
+                        Image image = Resources.pixel_ghost_red_down_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
                     else if (Pacman.Map[j, i] == 2)
                     {
-                        Image image = Resources.pixel_ghost_orange_128x128;
+                        Image image = Resources.pixel_ghost_orange_left_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
                     else if (Pacman.Map[j, i] == 5)
                     {
-                        Image image = Resources.pixel_ghost_blue_128x128;
+                        Image image = Resources.pixel_ghost_blue_left_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
                     else if (Pacman.Map[j, i] == 6)
                     {
-                        Image image = Resources.pixel_ghost_pink_128x128;
+                        Image image = Resources.pixel_ghost_pink_left_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
                 }

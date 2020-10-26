@@ -100,5 +100,26 @@
   <ItemGroup>
     <None Include="Properties\Images\Ghosts\pixel-ghost-pink-128x128.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\pixel-ghost-red-right-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\pixel-ghost-red-down-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\pixel-ghost-red-up-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Red\pixel-ghost-red-down-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Red\pixel-ghost-red-left-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Red\pixel-ghost-red-right-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Red\pixel-ghost-red-up-128x128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
