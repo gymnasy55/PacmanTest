@@ -61,11 +61,71 @@ namespace PacmanTest.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] crackman {
+            get {
+                object obj = ResourceManager.GetObject("crackman", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] crackman_back {
+            get {
+                object obj = ResourceManager.GetObject("crackman_back", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] crackman_front {
+            get {
+                object obj = ResourceManager.GetObject("crackman_front", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_blue_down_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_blue_down_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap pixel_ghost_blue_left_128x128 {
             get {
                 object obj = ResourceManager.GetObject("pixel_ghost_blue_left_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_blue_right_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_blue_right_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_blue_up_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_blue_up_128x128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,6 +143,16 @@ namespace PacmanTest.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_orange_down_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_orange_down_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pixel_ghost_orange_left_128x128 {
             get {
                 object obj = ResourceManager.GetObject("pixel_ghost_orange_left_128x128", resourceCulture);
@@ -93,9 +163,59 @@ namespace PacmanTest.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_orange_right_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_orange_right_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_orange_up_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_orange_up_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_pink_down_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_pink_down_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pixel_ghost_pink_left_128x128 {
             get {
                 object obj = ResourceManager.GetObject("pixel_ghost_pink_left_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_pink_right_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_pink_right_128x128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixel_ghost_pink_up_128x128 {
+            get {
+                object obj = ResourceManager.GetObject("pixel_ghost_pink_up_128x128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -137,6 +257,15 @@ namespace PacmanTest.Properties {
             get {
                 object obj = ResourceManager.GetObject("pixel_ghost_red_up_128x128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sexy_song {
+            get {
+                return ResourceManager.GetStream("sexy_song", resourceCulture);
             }
         }
     }

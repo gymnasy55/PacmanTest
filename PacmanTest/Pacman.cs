@@ -65,28 +65,40 @@ namespace PacmanTest
             {
                 case Keys.Right:
                     if (!isWall(coord.X + 1, coord.Y))
+                    {
+                        this.Y = (coord.Y - 1) * 30 + 15 - 10;
                         return true;
+                    }
                     else if ((this.X + 10) % 15 == 0 && (this.X + 10) % 30 != 0)
                         return false;
                     else
                         return true;
                 case Keys.Left:
                     if (!isWall(coord.X - 1, coord.Y))
+                    {
+                        this.Y = (coord.Y - 1) * 30 + 15 - 10;
                         return true;
+                    }
                     else if ((this.X + 10) % 15 == 0 && (this.X + 10) % 30 != 0)
                         return false;
                     else
                         return true;
                 case Keys.Up:
                     if (!isWall(coord.X, coord.Y - 1))
+                    {
+                        this.X = (coord.X - 1) * 30 + 15 - 10;
                         return true;
+                    }
                     else if ((this.Y + 10) % 15 == 0 && (this.Y + 10) % 30 != 0)
                         return false;
                     else
                         return true;
                 case Keys.Down:
                     if (!isWall(coord.X, coord.Y + 1))
+                    {
+                        this.X = (coord.X - 1) * 30 + 15 - 10;
                         return true;
+                    }
                     else if ((this.Y + 10) % 15 == 0 && (this.Y + 10) % 30 != 0)
                         return false;
                     else

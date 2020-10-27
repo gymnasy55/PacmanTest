@@ -118,17 +118,53 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="crackman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Fonts\crackman.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="crackman_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Fonts\crackman back.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="crackman_front" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Fonts\crackman front.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pixel_ghost_blue_down_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Blue\pixel-ghost-blue-down-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pixel_ghost_blue_left_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Ghosts\pixel-ghost-blue-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Images\Ghosts\Blue\pixel-ghost-blue-left-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_blue_right_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Blue\pixel-ghost-blue-right-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_blue_up_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Blue\pixel-ghost-blue-up-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pixel_ghost_chase_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Ghosts\pixel-ghost-chase-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pixel_ghost_orange_down_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Orange\pixel-ghost-orange-down-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pixel_ghost_orange_left_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Ghosts\pixel-ghost-orange-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Images\Ghosts\Orange\pixel-ghost-orange-left-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_orange_right_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Orange\pixel-ghost-orange-right-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_orange_up_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Orange\pixel-ghost-orange-up-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_pink_down_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Pink\pixel-ghost-pink-down-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pixel_ghost_pink_left_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Images\Ghosts\pixel-ghost-pink-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Images\Ghosts\Pink\pixel-ghost-pink-left-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_pink_right_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Pink\pixel-ghost-pink-right-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pixel_ghost_pink_up_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Images\Ghosts\Pink\pixel-ghost-pink-up-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pixel_ghost_red_down_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Ghosts\Red\pixel-ghost-red-down-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,5 +177,8 @@
   </data>
   <data name="pixel_ghost_red_up_128x128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Images\Ghosts\Red\pixel-ghost-red-up-128x128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sexy_song" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Sounds\sexy_song.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

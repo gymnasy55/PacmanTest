@@ -58,6 +58,7 @@
             this.Controls.Add(this.pcb);
             this.Name = "GameForm";
             this.Text = "Pacman";
+            this.Load += new System.EventHandler(this.GameForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pcb)).EndInit();
             this.ResumeLayout(false);

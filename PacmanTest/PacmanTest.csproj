@@ -69,6 +69,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\Fonts\crackman back.ttf" />
+    <None Include="Properties\Fonts\crackman front.ttf" />
+    <None Include="Properties\Fonts\crackman.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,6 +123,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Images\Ghosts\Red\pixel-ghost-red-up-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Blue\pixel-ghost-blue-left-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Orange\pixel-ghost-orange-down-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Orange\pixel-ghost-orange-left-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Orange\pixel-ghost-orange-right-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Orange\pixel-ghost-orange-up-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Blue\pixel-ghost-blue-down-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Blue\pixel-ghost-blue-right-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Blue\pixel-ghost-blue-up-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Pink\pixel-ghost-pink-down-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Pink\pixel-ghost-pink-left-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Pink\pixel-ghost-pink-right-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Images\Ghosts\Pink\pixel-ghost-pink-up-128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Sounds\sexy_song.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

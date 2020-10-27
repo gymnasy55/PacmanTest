@@ -4,11 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Media;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using PacmanTest.Properties;
 
 namespace PacmanTest
@@ -21,22 +26,33 @@ namespace PacmanTest
         private Keys _key;
         private int _startAngle;
         private bool _isEating;
+        private int _score;
+        private readonly PrivateFontCollection _privateFonts;
+        private readonly int _overallDots;
+        private int _playerDots;
+        private bool _isWin;
+        private bool _isLoose;
+        private readonly SoundPlayer _soundPlayer;
 
         public GameForm()
         {
             InitializeComponent();
-            _pacman = new Pacman(35, 35);
+            _pacman = new Pacman(275, 365);
             this.BackColor = Color.Black;
-            this.ClientSize = new System.Drawing.Size(570, 660);
+            this.ClientSize = new System.Drawing.Size(570, 690);
             _key = Keys.Right;
             _delta = 10;
             _startAngle = 45;
-            _isEating = false;
+            _isEating = _isWin = _isLoose = false;
             _ghosts = new List<Ghost>();
             _ghosts.Add(new Ghost(10 * 30, 10 * 30, GhostDirection.Down, GhostValue.Red));
             _ghosts.Add(new Ghost(10 * 30, 11 * 30, GhostDirection.Up, GhostValue.Orange));
             _ghosts.Add(new Ghost(9 * 30, 11 * 30, GhostDirection.Right, GhostValue.Blue));
             _ghosts.Add(new Ghost(11 * 30, 11 * 30, GhostDirection.Left, GhostValue.Pink));
+            _score = _playerDots = 0;
+            _privateFonts = new PrivateFontCollection();;
+            _overallDots = 182;
+            _soundPlayer = new SoundPlayer(Resources.sexy_song);
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
@@ -64,26 +80,41 @@ namespace PacmanTest
 
         private void tmr_Tick(object sender, EventArgs e)
         {
-            bool cango = _pacman.CanGo(_key);
+            bool canGo = _pacman.CanGo(_key);
             switch (_key)
             {
-                case Keys.Right when cango:
+                case Keys.Right when canGo:
                     if (_pacman.X + 5 + _pacman.Diameter < this.ClientSize.Width - 30)
                         _pacman.X += _delta;
                     break;
-                case Keys.Up when cango:
+                case Keys.Up when canGo:
                     if (_pacman.Y > 35)
                         _pacman.Y -= _delta;
                     break;
-                case Keys.Left when cango:
+                case Keys.Left when canGo:
                     if (_pacman.X > 35)
                         _pacman.X -= _delta;
                     break;
-                case Keys.Down when cango:
+                case Keys.Down when canGo:
                     if (_pacman.Y + 5 + _pacman.Diameter < this.ClientSize.Height - 30)
                         _pacman.Y += _delta;
                     break;
             }
+
+            if (Pacman.Map[_pacman.Get_coord().Y - 1, _pacman.Get_coord().X - 1] == (int) Item.Candy)
+            {
+                _score += 10;
+                _playerDots++;
+                Pacman.Map[_pacman.Get_coord().Y - 1, _pacman.Get_coord().X - 1] = (int) Item.Empty;
+            }
+            else if (Pacman.Map[_pacman.Get_coord().Y - 1, _pacman.Get_coord().X - 1] == (int)Item.BigCandy)
+            {
+                _score += 50;
+                _playerDots++;
+                Pacman.Map[_pacman.Get_coord().Y - 1, _pacman.Get_coord().X - 1] = (int)Item.Empty;
+            }
+
+            if (_playerDots == _overallDots) _isWin = true;
             _isEating = !_isEating;
             pcb.Invalidate();
         }
@@ -132,19 +163,64 @@ namespace PacmanTest
                         Image image = Resources.pixel_ghost_red_down_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
-                    else if (Pacman.Map[j, i] == 2)
+                    else if (Pacman.Map[j, i] == 2 && _ghosts[1].Direction == GhostDirection.Left)
                     {
                         Image image = Resources.pixel_ghost_orange_left_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
-                    else if (Pacman.Map[j, i] == 5)
+                    else if (Pacman.Map[j, i] == 2 && _ghosts[1].Direction == GhostDirection.Right)
+                    {
+                        Image image = Resources.pixel_ghost_orange_right_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 2 && _ghosts[1].Direction == GhostDirection.Up)
+                    {
+                        Image image = Resources.pixel_ghost_orange_up_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 2 && _ghosts[1].Direction == GhostDirection.Down)
+                    {
+                        Image image = Resources.pixel_ghost_orange_down_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 5 && _ghosts[2].Direction == GhostDirection.Left)
                     {
                         Image image = Resources.pixel_ghost_blue_left_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
-                    else if (Pacman.Map[j, i] == 6)
+                    else if (Pacman.Map[j, i] == 5 && _ghosts[2].Direction == GhostDirection.Right)
+                    {
+                        Image image = Resources.pixel_ghost_blue_right_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 5 && _ghosts[2].Direction == GhostDirection.Up)
+                    {
+                        Image image = Resources.pixel_ghost_blue_up_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 5 && _ghosts[2].Direction == GhostDirection.Down)
+                    {
+                        Image image = Resources.pixel_ghost_blue_down_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 6 && _ghosts[3].Direction == GhostDirection.Left)
                     {
                         Image image = Resources.pixel_ghost_pink_left_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 6 && _ghosts[3].Direction == GhostDirection.Right)
+                    {
+                        Image image = Resources.pixel_ghost_pink_right_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 6 && _ghosts[3].Direction == GhostDirection.Up)
+                    {
+                        Image image = Resources.pixel_ghost_pink_up_128x128;
+                        e.Graphics.DrawImage(image, rect);
+                    }
+                    else if (Pacman.Map[j, i] == 6 && _ghosts[3].Direction == GhostDirection.Down)
+                    {
+                        Image image = Resources.pixel_ghost_pink_down_128x128;
                         e.Graphics.DrawImage(image, rect);
                     }
                 }
@@ -153,6 +229,31 @@ namespace PacmanTest
                 e.Graphics.FillPie(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter), _startAngle, 270);
             else
                 e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter));
+            e.Graphics.DrawString($"Score:{_score}", new Font(_privateFonts.Families[0], 22), Brushes.Yellow, 1, 22 * 30);
+            if (_isWin)
+            {
+                tmr.Enabled = false;
+                Rectangle rect = new Rectangle(1, this.ClientSize.Height / 2 - 50, this.ClientSize.Width - 2, 100);
+                e.Graphics.DrawRectangle(new Pen(Color.White, 2), rect);
+                rect.Inflate(-2, -2);
+                e.Graphics.FillRectangle(Brushes.Black, rect);
+                e.Graphics.DrawString("YOU WIN!", new Font(_privateFonts.Families[0], 30), Brushes.Yellow, this.ClientSize.Width / 16 * 5, this.ClientSize.Height / 2 - 20);
+            }
+        }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            using (MemoryStream fontStream = new MemoryStream(Resources.crackman))
+            {
+                IntPtr data = Marshal.AllocCoTaskMem((int)fontStream.Length);
+                byte[] fontData = new byte[fontStream.Length];
+                fontStream.Read(fontData, 0, (int)fontStream.Length);
+                Marshal.Copy(fontData, 0, data, (int)fontStream.Length);
+                _privateFonts.AddMemoryFont(data, (int)fontStream.Length);
+                fontStream.Close();
+                Marshal.FreeCoTaskMem(data);
+            }
+            _soundPlayer.PlayLooping();
         }
     }
 }
