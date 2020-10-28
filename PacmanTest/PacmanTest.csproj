@@ -92,7 +92,7 @@
     <None Include="Properties\Images\Ghosts\pixel-ghost-red-128x128.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
+    <None Include="Properties\Sounds\game.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Images\Ghosts\pixel-ghost-blue-128x128.png" />

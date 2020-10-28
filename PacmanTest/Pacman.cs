@@ -105,7 +105,6 @@ namespace PacmanTest
                         return true;
             }
             return false;
-
         }
     }
 }

@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tmr = new System.Windows.Forms.Timer(this.components);
+            this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.pcb = new System.Windows.Forms.PictureBox();
+            this.tmrRestart = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcb)).BeginInit();
             this.SuspendLayout();
             // 
-            // tmr
+            // tmrGame
             // 
-            this.tmr.Enabled = true;
-            this.tmr.Interval = 66;
-            this.tmr.Tick += new System.EventHandler(this.tmr_Tick);
+            this.tmrGame.Enabled = true;
+            this.tmrGame.Interval = 66;
+            this.tmrGame.Tick += new System.EventHandler(this.tmr_Tick);
             // 
             // pcb
             // 
@@ -49,6 +50,11 @@
             this.pcb.TabIndex = 0;
             this.pcb.TabStop = false;
             this.pcb.Paint += new System.Windows.Forms.PaintEventHandler(this.pcb_Paint);
+            // 
+            // tmrRestart
+            // 
+            this.tmrRestart.Interval = 1000;
+            this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
             // 
             // GameForm
             // 
@@ -67,8 +73,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer tmr;
+        private System.Windows.Forms.Timer tmrGame;
         private System.Windows.Forms.PictureBox pcb;
+        private System.Windows.Forms.Timer tmrRestart;
     }
 }
 

@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Media;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -33,6 +34,7 @@ namespace PacmanTest
         private bool _isWin;
         private bool _isLoose;
         private readonly SoundPlayer _soundPlayer;
+        private bool _isVisibleRestart;
 
         public GameForm()
         {
@@ -43,16 +45,18 @@ namespace PacmanTest
             _key = Keys.Right;
             _delta = 10;
             _startAngle = 45;
-            _isEating = _isWin = _isLoose = false;
-            _ghosts = new List<Ghost>();
-            _ghosts.Add(new Ghost(10 * 30, 10 * 30, GhostDirection.Down, GhostValue.Red));
-            _ghosts.Add(new Ghost(10 * 30, 11 * 30, GhostDirection.Up, GhostValue.Orange));
-            _ghosts.Add(new Ghost(9 * 30, 11 * 30, GhostDirection.Right, GhostValue.Blue));
-            _ghosts.Add(new Ghost(11 * 30, 11 * 30, GhostDirection.Left, GhostValue.Pink));
+            _isEating = _isWin = _isLoose = _isVisibleRestart = false;
+            _ghosts = new List<Ghost>
+            {
+                new Ghost(10 * 30, 10 * 30, GhostDirection.Down, GhostValue.Red),
+                new Ghost(10 * 30, 11 * 30, GhostDirection.Up, GhostValue.Orange),
+                new Ghost(9 * 30, 11 * 30, GhostDirection.Right, GhostValue.Blue),
+                new Ghost(11 * 30, 11 * 30, GhostDirection.Left, GhostValue.Pink)
+            };
             _score = _playerDots = 0;
             _privateFonts = new PrivateFontCollection();;
             _overallDots = 182;
-            _soundPlayer = new SoundPlayer(Resources.sexy_song);
+            _soundPlayer = new SoundPlayer(Resources.game);
         }
 
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
@@ -74,6 +78,9 @@ namespace PacmanTest
                 case Keys.Down:
                     _key = Keys.Down;
                     _startAngle = 135;
+                    break;
+                case Keys.N when _isLoose || _isWin:
+                    Application.Restart();
                     break;
             }
         }
@@ -114,14 +121,33 @@ namespace PacmanTest
                 Pacman.Map[_pacman.Get_coord().Y - 1, _pacman.Get_coord().X - 1] = (int)Item.Empty;
             }
 
-            if (_playerDots == _overallDots) _isWin = true;
+            if (_playerDots == _overallDots) 
+                _isWin = true;
+
+            if (false) //TODO: условие проигрыша
+                _isLoose = true;
+
+
             _isEating = !_isEating;
             pcb.Invalidate();
         }
 
         private void pcb_Paint(object sender, PaintEventArgs e)
         {
+            void ShowEnd(string message)
+            {
+                tmrGame.Enabled = false;
+                Rectangle rect = new Rectangle(1, this.ClientSize.Height / 2 - 50, this.ClientSize.Width - 2, 100);
+                e.Graphics.DrawRectangle(new Pen(Color.White, 2), rect);
+                rect.Inflate(-2, -2);
+                e.Graphics.FillRectangle(Brushes.Black, rect);
+                e.Graphics.DrawString(message, new Font(_privateFonts.Families[0], 30), Brushes.Yellow, this.ClientSize.Width / 16 * 5, this.ClientSize.Height / 2 - 40);
+                tmrRestart.Enabled = true;
+                e.Graphics.DrawString("Press N to restart", new Font(_privateFonts.Families[0], 22), Brushes.Yellow, this.ClientSize.Width / 4, this.ClientSize.Height / 2);
+            }
+
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+
             for (int i = 0; i < 19; i++)
             {
                 for (int j = 0; j < 22; j++)
@@ -225,20 +251,18 @@ namespace PacmanTest
                     }
                 }
             }
+
             if (_isEating)
                 e.Graphics.FillPie(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter), _startAngle, 270);
             else
                 e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(_pacman.X, _pacman.Y, _pacman.Diameter, _pacman.Diameter));
+            
             e.Graphics.DrawString($"Score:{_score}", new Font(_privateFonts.Families[0], 22), Brushes.Yellow, 1, 22 * 30);
+            
             if (_isWin)
-            {
-                tmr.Enabled = false;
-                Rectangle rect = new Rectangle(1, this.ClientSize.Height / 2 - 50, this.ClientSize.Width - 2, 100);
-                e.Graphics.DrawRectangle(new Pen(Color.White, 2), rect);
-                rect.Inflate(-2, -2);
-                e.Graphics.FillRectangle(Brushes.Black, rect);
-                e.Graphics.DrawString("YOU WIN!", new Font(_privateFonts.Families[0], 30), Brushes.Yellow, this.ClientSize.Width / 16 * 5, this.ClientSize.Height / 2 - 20);
-            }
+                ShowEnd("YOU WIN!");
+            else if (_isLoose)
+                ShowEnd("YOU LOOSE!");
         }
 
         private void GameForm_Load(object sender, EventArgs e)
@@ -254,6 +278,11 @@ namespace PacmanTest
                 Marshal.FreeCoTaskMem(data);
             }
             _soundPlayer.PlayLooping();
+        }
+
+        private void tmrRestart_Tick(object sender, EventArgs e)
+        {
+            _isVisibleRestart = !_isVisibleRestart;
         }
     }
 }
