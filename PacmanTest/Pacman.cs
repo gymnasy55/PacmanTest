@@ -28,7 +28,7 @@ namespace PacmanTest
             {8, 8, 8, 8, 1, 8, 8, 8, 1, 8, 1, 8, 8, 8, 1, 8, 8, 8, 8},
             {0, 0, 0, 8, 1, 8, 1, 1, 1, 1, 1, 1, 1, 8, 1, 8, 0, 0, 0},
             {8, 8, 8, 8, 1, 8, 1, 8, 8, 3, 8, 8, 1, 8, 1, 8, 8, 8, 8},
-            {0, 0, 0, 0, 1, 1, 1, 8, 5, 2, 6, 8, 1, 1, 1, 0, 0, 0, 0},
+            {8, 0, 0, 0, 1, 1, 1, 8, 5, 2, 6, 8, 1, 1, 1, 0, 0, 0, 8},
             {8, 8, 8, 8, 1, 8, 1, 8, 8, 8, 8, 8, 1, 8, 1, 8, 8, 8, 8},
             {0, 0, 0, 8, 1, 8, 1, 1, 1, 7, 1, 1, 1, 8, 1, 8, 0, 0, 0},
             {8, 8, 8, 8, 1, 8, 1, 8, 8, 8, 8, 8, 1, 8, 1, 8, 8, 8, 8},
@@ -42,7 +42,7 @@ namespace PacmanTest
             {8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8}
         };
 
-		public Pacman()
+        public Pacman()
         {
             this.X = 0;
             this.Y = 0;
@@ -54,7 +54,7 @@ namespace PacmanTest
             this.Y = y;
         }
 
-        public Point Get_coord() => new Point((int)Math.Ceiling((this.X + 10) / 30.0), (int)Math.Ceiling((this.Y + 10) / 30.0));
+        public Point Get_coord() => new Point((int)Math.Ceiling(this.X / 30.0), (int)Math.Ceiling(this.Y / 30.0));
 
         private bool isWall(int X, int Y) => Map[Y - 1, X - 1] == (int)Item.Wall;
 

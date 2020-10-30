@@ -127,6 +127,9 @@
   <data name="crackman_front" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Fonts\crackman front.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="death" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Sounds\death.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="game" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Sounds\game.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

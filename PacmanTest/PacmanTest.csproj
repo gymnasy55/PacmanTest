@@ -163,5 +163,8 @@
   <ItemGroup>
     <None Include="Properties\Sounds\sexy_song.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Sounds\death.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

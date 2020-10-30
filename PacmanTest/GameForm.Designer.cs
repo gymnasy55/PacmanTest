@@ -53,8 +53,7 @@
             // 
             // tmrRestart
             // 
-            this.tmrRestart.Interval = 1000;
-            this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
+            //this.tmrRestart.Tick += new System.EventHandler(this.tmrRestart_Tick);
             // 
             // GameForm
             // 

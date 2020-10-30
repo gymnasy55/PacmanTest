@@ -93,6 +93,15 @@ namespace PacmanTest.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream death {
+            get {
+                return ResourceManager.GetStream("death", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream game {
             get {
                 return ResourceManager.GetStream("game", resourceCulture);
